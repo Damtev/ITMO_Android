@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_blue"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TopPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/weather"
+        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/today_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="center"
+        tools:text="Today"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/today_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/today_temperature"
+        app:layout_constraintTop_toBottomOf="@id/today_day" />
+
+    <TextView
+        android:id="@+id/today_temperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="-5C"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/loc"
+        app:layout_constraintTop_toBottomOf="@id/today_pic" />
+
+    <TextView
+        android:id="@+id/loc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/loc"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/today"
+        app:layout_constraintTop_toBottomOf="@id/today_temperature" />
+
+    <LinearLayout
+        android:id="@+id/today"
+        style="@style/InfoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/week"
+        app:layout_constraintTop_toBottomOf="@id/loc">
+
+        <LinearLayout
+            android:id="@+id/first"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/today_pressure"
+                style="@style/InfoTextTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pressure_value" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_icons8_atmospheric_pressure" />
+
+            <TextView
+                style="@style/InfoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pressure" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:orientation="vertical"
+            tools:showIn="@layout/activity_main">
+
+            <TextView
+                android:id="@+id/today_visibility"
+                style="@style/InfoTextTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/visibility_value" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_eye" />
+
+            <TextView
+                style="@style/InfoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/visibility" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/third"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/today_humidity"
+                style="@style/InfoTextTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/humidity_value" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_humidity" />
+
+            <TextView
+                style="@style/InfoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/humidity" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/week"
+        style="@style/InfoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/buttonPanel"
+        app:layout_constraintTop_toBottomOf="@id/today">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tuesday"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/second_day"
+                style="@style/WeekText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tuesday"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/second_pic"
+                style="@style/WeekImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/second_day" />
+
+            <TextView
+                android:id="@+id/second_temp"
+                style="@style/WeekText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tuesday_temp"
+                app:layout_constraintTop_toBottomOf="@id/second_pic" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wednesday"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/third_day"
+                style="@style/WeekText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/wednesday"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/third_pic"
+                style="@style/WeekImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/third_day" />
+
+            <TextView
+                android:id="@+id/third_temp"
+                style="@style/WeekText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/wednesday_temp"
+                app:layout_constraintTop_toBottomOf="@id/third_pic" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/thursday"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fourth_day"
+                style="@style/WeekText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/thursday"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/fourth_pic"
+                style="@style/WeekImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fourth_day" />
+
+            <TextView
+                android:id="@+id/fourth_temp"
+                style="@style/WeekText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/thursday_temp"
+                app:layout_constraintTop_toBottomOf="@id/fourth_pic" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/friday"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fifth_day"
+                style="@style/WeekText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/friday"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/fifth_pic"
+                style="@style/WeekImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fifth_day" />
+
+            <TextView
+                android:id="@+id/fifth_temp"
+                style="@style/WeekText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/friday_temp"
+                app:layout_constraintTop_toBottomOf="@id/fifth_pic" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageButton
+            style="@style/ButtonTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.25"
+            android:src="@drawable/ic_home" />
+
+        <ImageButton
+            style="@style/ButtonTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.25"
+            android:src="@drawable/ic_settings" />
+
+        <ImageButton
+            style="@style/ButtonTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.25"
+            android:src="@drawable/ic_apps" />
+
+        <ImageButton
+            style="@style/ButtonTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.25"
+            android:src="@drawable/ic_location_on" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

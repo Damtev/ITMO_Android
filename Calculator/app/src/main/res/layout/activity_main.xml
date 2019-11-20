@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#262525"
+    android:padding="5dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:background="@drawable/field"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:textCursorDrawable="@android:color/white"
+        android:singleLine="true"
+        android:textSize="40sp"
+        android:inputType="none"
+        tools:text="Output" />
+
+    <TextView
+        android:id="@+id/output"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="0.15"
+        android:background="@drawable/field"
+        android:gravity="end|center_vertical"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textIsSelectable="true"
+        android:textSize="40sp"
+        tools:text="Result" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.65">
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/button_sin"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/sin" />
+
+            <Button
+                android:id="@+id/button_left_bracket"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/left_bracket" />
+
+            <Button
+                android:id="@+id/button_right_bracket"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/right_bracket" />
+
+            <Button
+                android:id="@+id/button_clear"
+                style="@style/SpecialButton"
+                android:background="@drawable/button_base"
+                android:text="@string/clear" />
+
+            <Button
+                android:id="@+id/button_backspace"
+                style="@style/SpecialButton"
+                android:background="@drawable/button_base"
+                android:text="@string/backspace" />
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/button_7"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/_7" />
+
+            <Button
+                android:id="@+id/button_8"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/_8" />
+
+            <Button
+                android:id="@+id/button_9"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/_9" />
+
+            <Button
+                android:id="@+id/button_div"
+                style="@style/OperationButton"
+                android:background="@drawable/button_base"
+                android:text="@string/div" />
+
+            <Button
+                android:id="@+id/button_sqrt"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/sqrt" />
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/button_4"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/_4" />
+
+            <Button
+                android:id="@+id/button_5"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/_5" />
+
+            <Button
+                android:id="@+id/button_6"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/_6" />
+
+            <Button
+                android:id="@+id/button_mult"
+                style="@style/OperationButton"
+                android:background="@drawable/button_base"
+                android:text="@string/mult" />
+
+            <Button
+                android:id="@+id/button_pow"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/pow" />
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/button_1"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/_1" />
+
+            <Button
+                android:id="@+id/button_2"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/_2" />
+
+            <Button
+                android:id="@+id/button_3"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/_3" />
+
+            <Button
+                android:id="@+id/button_sub"
+                style="@style/OperationButton"
+                android:background="@drawable/button_base"
+                android:text="@string/sub" />
+
+            <Button
+                android:id="@+id/button_cos"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/cos" />
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/button_0"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/_0" />
+
+            <Button
+                android:id="@+id/button_dot"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/dot" />
+
+            <Button
+                android:id="@+id/button_mod"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/mod" />
+
+            <Button
+                android:id="@+id/button_add"
+                style="@style/OperationButton"
+                android:background="@drawable/button_base"
+                android:text="@string/add" />
+
+            <Button
+                android:id="@+id/button_calc"
+                style="@style/CommonButton"
+                android:background="@drawable/button_base"
+                android:text="@string/calc" />
+        </TableRow>
+
+    </TableLayout>
+
+
+</LinearLayout>

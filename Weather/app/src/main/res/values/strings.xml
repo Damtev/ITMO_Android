@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="weather">Weather</string>
+    <string name="monday_temp" />
+    <string name="loc">
+        St Petersburg\n
+        Russia
+    </string>
+    <string name="pressure_value" />
+    <string name="pressure">Pressure</string>
+    <string name="visibility_value" />
+    <string name="visibility">Visibility</string>
+    <string name="humidity_value" />
+    <string name="humidity">Humidity</string>
+    <string name="monday" />
+    <string name="tuesday" />
+    <string name="tuesday_temp" />
+    <string name="wednesday" />
+    <string name="wednesday_temp" />
+    <string name="thursday" />
+    <string name="thursday_temp" />
+    <string name="friday" />
+    <string name="friday_temp" />
+
+    <color name="light_blue">#e9f5f7</color>
+
+    <string name="city_id">498817</string>
+    <string name="units">metric</string>
+    <integer name="count">5</integer>
+    <string name="celsius">\u2103</string>
+    <string name="mb">mb</string>
+</resources>
