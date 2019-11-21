@@ -1,7 +1,8 @@
 package com.example.calculator
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.mariuszgromada.math.mxparser.Expression
 import java.text.DecimalFormat
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var result = ""
+    private var isValidResult = false
+    private var isLastOpCalc = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,8 +71,11 @@ class MainActivity : AppCompatActivity() {
         }
         button_calc.setOnClickListener {
             calculate()
-            input.setText(result)
-            input.selectAll()
+            if (isValidResult) {
+                input.setText(result)
+                input.selectAll()
+                isLastOpCalc = true
+            }
         }
     }
 
@@ -88,9 +94,12 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun addExpression(expr: String) {
-        if (input.selectionStart != input.selectionEnd) {
+        if (isLastOpCalc) {
+            input.setSelection(input.selectionEnd)
+        } else if (input.selectionStart != input.selectionEnd) {
             removeSelected()
         }
+
         var text = expr
         var isUnary = false
         if (text == "sqrt" || text == "sin" || text == "cos") {
@@ -104,22 +113,34 @@ class MainActivity : AppCompatActivity() {
         calculate()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun calculate() {
         if (input.text.isEmpty()) {
             output.text = ""
             return
         }
-        val calculated = Expression(input.text.toString()).calculate()
-        if (!calculated.isNaN()) {
-            var format = calculated.toString()
-            if (abs(calculated) > 1e10) {
-                format = DecimalFormat("0.00000000E0").format(calculated)
-            }
-            result = format.replace(",", ".")
-            if (result.endsWith(".0")) {
-                result = result.substringBefore(".")
-            }
-            output.text = result
+        val expr = Expression(input.text.toString())
+        if (!expr.checkSyntax()) {
+            isValidResult = false
+            return
         }
+
+        val calculated = expr.calculate()
+        if (calculated.isNaN()) {
+            isValidResult = false
+            output.text = "Division by zero"
+            return
+        }
+
+        isValidResult = true
+        var format = calculated.toString()
+        if (abs(calculated) > 1e10) {
+            format = DecimalFormat("0.00000000E0").format(calculated)
+        }
+        result = format.replace(",", ".")
+        if (result.endsWith(".0")) {
+            result = result.substringBefore(".")
+        }
+        output.text = result
     }
 }
