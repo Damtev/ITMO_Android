@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
                     val calendar = Calendar.getInstance(TimeZone.getTimeZone("Europe/Moscow"))
                     val dateFormat = SimpleDateFormat("EEE", Locale.ENGLISH)
 
-                    val weather = Array<WeatherTemplate?>(5) { null }
+                    val weather = Array<WeatherTemplate?>(days.size) { null }
                     for (i in days.indices) {
                         calendar.timeInMillis = body.dailyWeathers[i + 1].date * 1000
                         days[i].text = dateFormat.format(calendar.time)
